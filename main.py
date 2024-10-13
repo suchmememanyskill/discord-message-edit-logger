@@ -16,8 +16,8 @@ else:
     CHANNEL_IDS = [int(x.strip()) for x in BOT_LISTEN_CHANNEL_IDS.split(";")]
     ALL_CHANNEL_IDS = False
 
-LOG_DELETED_CHANNEL_ID = os.getenv('LOG_DELETED_CHANNEL_ID', '')
-LOG_EDITED_CHANNEL_ID = os.getenv('LOG_EDITED_CHANNEL_ID', '')
+LOG_DELETED_CHANNEL_ID = os.getenv('BOT_LOG_DELETED_CHANNEL_ID', '')
+LOG_EDITED_CHANNEL_ID = os.getenv('BOT_LOG_EDITED_CHANNEL_ID', '')
 
 logger = logging.getLogger('discord.bot')
 bot = discord.Client(intents=intents)
