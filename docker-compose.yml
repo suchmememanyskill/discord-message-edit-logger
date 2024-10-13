@@ -1,0 +1,10 @@
+services:
+  discord-bot:
+    image: ghcr.io/suchmememanyskill/discord-message-edit-logger:latest
+    restart: unless-stopped
+    environment:
+      - BOT_TOKEN=${TOKEN}
+      - BOT_LISTEN_CHANNEL_IDS=*
+      # - BOT_LISTEN_CHANNEL_IDS=123;456;789
+      - BOT_LOG_DELETED_CHANNEL_ID=${LOG_DELETED_CHANNEL_ID}
+      - BOT_LOG_EDITED_CHANNEL_ID=${LOG_EDITED_CHANNEL_ID}

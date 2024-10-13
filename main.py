@@ -7,21 +7,20 @@ intents.guild_messages = True
 
 TOKEN = os.environ['BOT_TOKEN']
 
-BOT_LISTEN_CHANNELS = os.environ['BOT_LISTEN_CHANNELS']
+BOT_LISTEN_CHANNEL_IDS = os.environ['BOT_LISTEN_CHANNEL_IDS']
 
-if BOT_LISTEN_CHANNELS == '*':
+if BOT_LISTEN_CHANNEL_IDS == '*':
     CHANNEL_IDS = []
     ALL_CHANNEL_IDS = True
 else:
-    CHANNEL_IDS = [int(x.strip()) for x in BOT_LISTEN_CHANNELS.split(";")]
+    CHANNEL_IDS = [int(x.strip()) for x in BOT_LISTEN_CHANNEL_IDS.split(";")]
     ALL_CHANNEL_IDS = False
 
-LOG_DELETED_CHANNEL_ID = os.getenv('BOT_DELETED_CHANNEL', '')
-LOG_EDITED_CHANNEL_ID = os.getenv('BOT_EDITED_CHANNEL', '')
+LOG_DELETED_CHANNEL_ID = os.getenv('LOG_DELETED_CHANNEL_ID', '')
+LOG_EDITED_CHANNEL_ID = os.getenv('LOG_EDITED_CHANNEL_ID', '')
 
 logger = logging.getLogger('discord.bot')
 bot = discord.Client(intents=intents)
-
 
 async def get_channel(id : int|str):
     id = int(id)
